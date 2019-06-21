@@ -7,7 +7,6 @@
 #include <windows.h>
 #include <fstream>
 #include <sstream>
-#include <vector>
 #include "uzytkownik.h"
 #include "plikZUzytkownikami.h"
 
@@ -22,9 +21,11 @@ class UzytkownikManadzer
     bool czyIstniejeLogin(string login);
     PlikZUzytkownikami plikzUzytkownikami;
     Uzytkownik podajDaneNowegoUzytkownika();
+    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 public:
 
+    void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
 };
