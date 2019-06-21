@@ -14,13 +14,15 @@ class PlikZUzytkownikami
 {
     string nazwaPlikuZUzytkownikami;
     fstream plikTekstowy;
+    vector <Uzytkownik> uzytkownicy;
 
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
-
+    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:
 
     PlikZUzytkownikami();
+    vector <Uzytkownik> wczytajUzytkownikowZPliku();
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
 };
 
