@@ -9,10 +9,13 @@ using namespace std;
 
 class KsiazkaAdresowa
 {
-    UzytkownikManadzer uzytkownikManadzer;
+     UzytkownikManadzer uzytkownikManadzer;
+
 public:
+    int idZalogowanegoUzytkownika;
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
+    int logowanieUzytkownika();
 
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikManadzer(nazwaPlikuZUzytkownikami) {
             uzytkownikManadzer.wczytajUzytkownikowZPliku();

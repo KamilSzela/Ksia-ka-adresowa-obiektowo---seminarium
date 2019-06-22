@@ -12,4 +12,8 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
     uzytkownikManadzer.wypiszWszystkichUzytkownikow();
 }
+int KsiazkaAdresowa::logowanieUzytkownika()
+{
+    return idZalogowanegoUzytkownika = uzytkownikManadzer.logowanieUzytkownika();
+}
 
