@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "uzytkownikMenadzer.h"
-#include "plikZUzytkownikami.h"
+
 
 using namespace std;
 
@@ -20,6 +20,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int ID);
+    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
 
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikManadzer(nazwaPlikuZUzytkownikami) {
             uzytkownikManadzer.wczytajUzytkownikowZPliku();
