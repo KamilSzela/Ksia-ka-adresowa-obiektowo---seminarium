@@ -21,10 +21,9 @@ class UzytkownikManadzer
     bool czyIstniejeLogin(string login);
     PlikZUzytkownikami plikzUzytkownikami;
     Uzytkownik podajDaneNowegoUzytkownika();
-    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 public:
-
+    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikzUzytkownikami(nazwaPlikuZUzytkownikami) {};
     void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
