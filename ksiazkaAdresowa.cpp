@@ -66,4 +66,11 @@ void KsiazkaAdresowa::ustawIdZalogowanegoUzytkownika(int ID)
 {
     idZalogowanegoUzytkownika=ID;
 }
-
+void KsiazkaAdresowa::dodajAdresata()
+{
+    adresatManager.dodajAdresata(idZalogowanegoUzytkownika);
+}
+void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+    adresatManager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+}
