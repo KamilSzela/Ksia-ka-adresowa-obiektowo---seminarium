@@ -22,7 +22,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int ID);
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
