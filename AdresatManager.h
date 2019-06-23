@@ -20,10 +20,13 @@ class AdresatManager
 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
     void dopiszAdresataDoPliku(Adresat adresat);
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int dodajAdresata(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow();
+
 
 };
 

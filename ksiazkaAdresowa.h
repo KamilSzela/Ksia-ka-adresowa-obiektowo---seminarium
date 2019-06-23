@@ -25,6 +25,8 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
+    void wylogujUzytkownika();
 
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikManadzer(nazwaPlikuZUzytkownikami) {
             uzytkownikManadzer.wczytajUzytkownikowZPliku();

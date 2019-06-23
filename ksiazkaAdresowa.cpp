@@ -20,6 +20,7 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytk
 {
     uzytkownikManadzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
 }
+
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
 {
     char wybor;
@@ -64,7 +65,11 @@ int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
 }
 void KsiazkaAdresowa::ustawIdZalogowanegoUzytkownika(int ID)
 {
-    idZalogowanegoUzytkownika=ID;
+    idZalogowanegoUzytkownika = ID;
+}
+void KsiazkaAdresowa::wylogujUzytkownika()
+{
+    idZalogowanegoUzytkownika = 0;
 }
 void KsiazkaAdresowa::dodajAdresata()
 {
@@ -73,4 +78,8 @@ void KsiazkaAdresowa::dodajAdresata()
 void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
     adresatManager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+}
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    adresatManager.wyswietlWszystkichAdresatow();
 }
