@@ -75,7 +75,6 @@ void AdresatManager::wyswietlWszystkichAdresatow()
     {
         cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
     }
-    adresaci.clear();
     system("pause");
 }
  void AdresatManager::wyswietlDaneAdresata(Adresat adresat)
