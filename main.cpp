@@ -58,7 +58,7 @@ int main()
                 //wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-               // wyswietlWszystkichAdresatow(adresaci);
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
                 //idUsunietegoAdresata = usunAdresata(adresaci);
@@ -71,7 +71,7 @@ int main()
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
                 break;
             case '8':
-                ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika(0);
+                ksiazkaAdresowa.wylogujUzytkownika();
                // adresaci.clear();
                 break;
             }
