@@ -1,0 +1,4 @@
+1|1|Witlod|Gadowski|234 234 134|gadowski@com|krakow ul niepodleglosci|
+2|2|Krzysztof|Karon|23 345 331|histriasztuki@com|lublin ul pilsudskiego|
+3|1|Waldemar|Lysiak|234 234 234|none|rzym |
+4|3|Tomasz|Kot|234 2345 23|kot.miau@com|warszawa|

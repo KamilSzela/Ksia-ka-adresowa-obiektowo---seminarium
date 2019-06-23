@@ -40,14 +40,16 @@ int main()
                 // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
                 // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
                 // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-               // idOstatniegoAdresata = wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
+                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
+               // cout<<ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika();
+                //system("pause");
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
             {
             case '1':
-                //idOstatniegoAdresata = dodajAdresata(adresaci, idZalogowanegoUzytkownika, idOstatniegoAdresata);
+                ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);
