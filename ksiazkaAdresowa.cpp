@@ -70,3 +70,12 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
         return true;
     return false;
 }
+ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+ {
+     adresatManager->wyszukajAdresatowPoImieniu();
+ }
+
+  void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+ {
+     adresatManager->wyszukajAdresatowPoNazwisku();
+ }
