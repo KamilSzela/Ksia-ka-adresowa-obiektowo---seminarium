@@ -10,9 +10,8 @@
 #include "metodyPomocnicze.h"
 
 using namespace std;
-class PlikZAdresatami
-{
-    string nazwaPlikuZAdresatami;
+class PlikZAdresatami {
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
@@ -20,9 +19,10 @@ class PlikZAdresatami
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     bool czyPlikJestPusty(fstream &plikTekstowy);
+
 public:
+    PlikZAdresatami() :NAZWA_PLIKU_Z_ADRESATAMI("Adresaci.txt") {};
     void dopiszAdresataDoPliku(Adresat adresat);
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika, vector<Adresat> &adresaci);
-    PlikZAdresatami() :nazwaPlikuZAdresatami("Adresaci.txt") {};
 };
 #endif

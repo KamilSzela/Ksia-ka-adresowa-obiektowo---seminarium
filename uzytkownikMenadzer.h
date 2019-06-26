@@ -9,6 +9,7 @@
 #include <sstream>
 #include "uzytkownik.h"
 #include "plikZUzytkownikami.h"
+#include "metodyPomocnicze.h"
 
 using namespace std;
 
@@ -16,20 +17,25 @@ class UzytkownikManadzer
 {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikzUzytkownikami;
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikzUzytkownikami;
     Uzytkownik podajDaneNowegoUzytkownika();
 
 public:
-    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikzUzytkownikami(nazwaPlikuZUzytkownikami) {};
-    void wczytajUzytkownikowZPliku();
+    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikzUzytkownikami(nazwaPlikuZUzytkownikami) {
+    idZalogowanegoUzytkownika = 0;
+    uzytkownicy=plikzUzytkownikami.wczytajUzytkownikowZPliku();
+    };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika();
     void zapiszWszystkichUzytkownikowDoPliku();
+    bool czyUzytkownikJestZalogowany();
+    void wylogujUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

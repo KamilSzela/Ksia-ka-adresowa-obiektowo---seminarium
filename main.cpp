@@ -12,7 +12,7 @@ int main()
     char wybor;
     while (true)
     {
-        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany()==false)
         {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
@@ -22,7 +22,7 @@ int main()
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika(ksiazkaAdresowa.logowanieUzytkownika());
+                ksiazkaAdresowa.logowanieUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -40,10 +40,7 @@ int main()
                 // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
                 // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
                 // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
-               // cout<<ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika();
-                //system("pause");
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
