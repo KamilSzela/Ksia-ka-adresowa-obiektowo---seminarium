@@ -14,7 +14,6 @@ using namespace std;
 
 class AdresatManager {
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
-    int idOstatniegoAdresata;
     PlikZAdresatami plikZAdresatami;
     vector <Adresat> adresaci;
 
@@ -25,7 +24,7 @@ class AdresatManager {
 public:
     AdresatManager(int idZalogowanegoUzytkownika)
         : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
-        idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA, adresaci);
+        plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA, adresaci);
     }
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
