@@ -20,6 +20,7 @@ class AdresatManager {
     Adresat podajDaneNowegoAdresata();
     void dopiszAdresataDoPliku(Adresat adresat);
     void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
 public:
     AdresatManager(int idZalogowanegoUzytkownika)
@@ -28,6 +29,9 @@ public:
     }
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+
 };
 
 #endif
