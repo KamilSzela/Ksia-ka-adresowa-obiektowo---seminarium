@@ -12,22 +12,19 @@
     <panel_attributes>KsiażkaAdresowa
 --
  -uzytkownikManadzer: UzytkownikManager
- -idZalogowanegoUzytkownika: integer
- -adresatManager: AdresatManager
+ -*adresatManager: AdresatManager
 --
++ KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
 + rejestracjaUzytkownika(): void
 + wypiszWszystkichUzytkownikow(): void
 + logowanieUzytkownika(): integer
 + wybierzOpcjeZMenuGlownego(): character
 + wybierzOpcjeZMenuUzytkownika(): character
-+ pobierzIdZalogowanegoUzytkownika(): integer
-+ ustawIdZalogowanegoUzytkownika(int ID): void
 + zmianaHaslaZalogowanegoUzytkownika(): void
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku() void
 + dodajAdresata(): void 
 + wyswietlWszystkichAdresatow(): void
 + wylogujUzytkownika(): void 
-+ KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
++ czyUzytkownikJestZalogowany(): bool
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -81,6 +78,7 @@
 - vector &lt;Uzytkownik&gt; uzytkownicy;
 - plikZUzytkownikami: PlikZUzytkownikami
 --
++ UzytkownikManadzer(string nazwaPlikuZUzytkownikami)
 - podajDaneNowegoUzytkownika(): Uzytkownik
 - pobierzIdNowegoUzytkownika(): integer
 - czyIstniejeLogin(string login): bool
@@ -88,10 +86,10 @@
 + logowanieUzytkownika(): integer
 + wczytajUzytkownikowZPliku(): void
 + zmianaHaslaZalogowanegoUzytkownika(): void
-+ logowanieUzytkownika(): void
-+ wylogujSie(): integer
++ wylogujUzytkownika(): integer
++ zapiszWszystkichUzytkownikowDoPliku(): void
 + wypiszWszystkichUzytkownikow(): void
-+ UzytkownikManadzer(string nazwaPlikuZUzytkownikami)</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -106,7 +104,10 @@
 --
 + konwerjsaIntNaString(int liczba): string
 + konwersjaStringNaInt(string liczba): integer
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string</panel_attributes>
++ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string
++ wczytajLinie(): string
++ wczytajZnak(): char
++ wczytajLiczbe(): integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -141,13 +142,14 @@
 - idOstatniegoAdresata : integer
 - plikZAdresatami: PlikZAdresatami
 - adresaci: vector &lt;Adresat&gt; 
+- ID_ZALOGOWANEGO_UZYTKOWNIKA: const integer
 --
++ AdresatManager(int idZalogowanegoUzytkownika)
 - podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): Adresat
 - dopiszAdresataDoPliku(Adresat adresat): void
 - wyswietlDaneAdresata(Adresat adresat): void
 + dodajAdresata(): void
 + wyswietlWszystkichAdresatow: void
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku: integer
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -161,8 +163,9 @@
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-- nazwaPlikuZAdresatami: string
+- NAZWA_PLIKU_Z_ADRESATAMI: string const
 --
++ PlikZAdresatami() 
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
 - pobierzLiczbe(string tekst, int pozycjaZnaku): string
 - pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
@@ -171,7 +174,7 @@
 - czyPlikJestPusty(fstream &amp;plikTekstowy): bool
 + dopiszAdresataDoPliku(Adresat adresat): void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika, vector&lt;Adresat&gt; &amp;adresaci): integer
-+ PlikZAdresatami() </panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

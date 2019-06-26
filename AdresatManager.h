@@ -12,22 +12,23 @@
 #include "PlikZAdresatami.h"
 using namespace std;
 
-class AdresatManager
-{
+class AdresatManager {
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     int idOstatniegoAdresata;
     PlikZAdresatami plikZAdresatami;
     vector <Adresat> adresaci;
 
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    Adresat podajDaneNowegoAdresata();
     void dopiszAdresataDoPliku(Adresat adresat);
     void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    int dodajAdresata(int idZalogowanegoUzytkownika);
+    AdresatManager(int idZalogowanegoUzytkownika)
+        : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
+        idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA, adresaci);
+    }
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
-
-
 };
 
 #endif

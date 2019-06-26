@@ -4,25 +4,21 @@
 using namespace std;
 
 
-void KsiazkaAdresowa::rejestracjaUzytkownika()
-{
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikManadzer.rejestracjaUzytkownika();
 }
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikManadzer.wypiszWszystkichUzytkownikow();
 }
-int KsiazkaAdresowa::logowanieUzytkownika()
-{
-    return idZalogowanegoUzytkownika = uzytkownikManadzer.logowanieUzytkownika();
+void KsiazkaAdresowa::logowanieUzytkownika() {
+    uzytkownikManadzer.logowanieUzytkownika();
+    adresatManager = new AdresatManager(uzytkownikManadzer.pobierzIdZalogowanegoUzytkownika());
 }
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
-{
-    uzytkownikManadzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikManadzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
-{
+char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
     char wybor;
 
     system("cls");
@@ -33,12 +29,11 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    cin >> wybor;
+    wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
 }
-char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
-{
+char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
     char wybor;
 
     system("cls");
@@ -55,31 +50,23 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
     cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    cin >> wybor;
+    wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
 }
-int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
-{
-    return idZalogowanegoUzytkownika;
+void KsiazkaAdresowa::wylogujUzytkownika() {
+    uzytkownikManadzer.wylogujUzytkownika();
+    delete adresatManager;
+    adresatManager = NULL;
 }
-void KsiazkaAdresowa::ustawIdZalogowanegoUzytkownika(int ID)
-{
-    idZalogowanegoUzytkownika = ID;
+void KsiazkaAdresowa::dodajAdresata() {
+    adresatManager->dodajAdresata();
 }
-void KsiazkaAdresowa::wylogujUzytkownika()
-{
-    idZalogowanegoUzytkownika = 0;
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
+    adresatManager->wyswietlWszystkichAdresatow();
 }
-void KsiazkaAdresowa::dodajAdresata()
-{
-    adresatManager.dodajAdresata(idZalogowanegoUzytkownika);
-}
-void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    adresatManager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-}
-void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
-{
-    adresatManager.wyswietlWszystkichAdresatow();
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
+    if(uzytkownikManadzer.czyUzytkownikJestZalogowany())
+        return true;
+    return false;
 }
