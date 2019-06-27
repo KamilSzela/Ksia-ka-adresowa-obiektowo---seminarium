@@ -79,3 +79,7 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
  {
      adresatManager->wyszukajAdresatowPoNazwisku();
  }
+ void KsiazkaAdresowa::usunAdresata()
+ {
+     adresatManager->usunAdresata();
+ }
