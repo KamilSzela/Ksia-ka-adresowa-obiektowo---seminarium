@@ -24,7 +24,8 @@ class AdresatManager {
 
 public:
     AdresatManager(int idZalogowanegoUzytkownika)
-        : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
+        : ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika), plikZAdresatami("Adresaci.txt") {
+
         plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA, adresaci);
     }
     void dodajAdresata();
