@@ -179,3 +179,48 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
     else
         cout << "Nazwa pliku nie zostala zmieniona." << staraNazwa << endl;
 }
+void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata)
+{
+    string liniaZDanymiAdresata = "";
+
+    bool czyIstniejeAdresat = false;
+    int numerLiniiWPlikuTekstowym = 1;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy, tymczasowyPlikTekstowy;
+    nazwaTymczasowegoPlikuZAdresatami="Adresaci_tymczasowo.txt";
+
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
+
+    if (plikTekstowy.good() == true && idEdytowanegoAdresata != 0)
+    {
+        while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            if(idEdytowanegoAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+            {
+                czyIstniejeAdresat = true;
+                liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+                 if (numerLiniiWPlikuTekstowym == 1)
+                    tymczasowyPlikTekstowy << liniaZDanymiAdresata;
+                else if (numerLiniiWPlikuTekstowym > 1)
+                    tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
+
+            }
+            else
+            {
+                if (numerLiniiWPlikuTekstowym == 1)
+                    tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami;
+                else if (numerLiniiWPlikuTekstowym > 1)
+                    tymczasowyPlikTekstowy << endl << daneJednegoAdresataOddzielonePionowymiKreskami;
+            }
+                numerLiniiWPlikuTekstowym++;
+        }
+        plikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        usunPlik(pobierzNazwePliku());
+        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, pobierzNazwePliku());
+
+            cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
+    }
+}

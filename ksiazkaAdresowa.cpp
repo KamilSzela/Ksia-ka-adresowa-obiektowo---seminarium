@@ -83,3 +83,7 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
  {
      adresatManager->usunAdresata();
  }
+ void KsiazkaAdresowa::edytujAdresata()
+ {
+     adresatManager->edytujAdresata();
+ }
