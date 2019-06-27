@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>9</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>9</y>
-      <w>342</w>
-      <h>261</h>
+      <x>56</x>
+      <y>0</y>
+      <w>304</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>KsiażkaAdresowa
 --
@@ -25,16 +25,19 @@
 + wyswietlWszystkichAdresatow(): void
 + wylogujUzytkownika(): void 
 + czyUzytkownikJestZalogowany(): bool
-</panel_attributes>
++ wyszukajAdresatowPoImieniu(): void
++ wyszukajAdresatowPoNazwisku(); void
++ usunAdresata(): void
++ edytujAdresata(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>666</x>
-      <y>423</y>
-      <w>207</w>
-      <h>180</h>
+      <x>624</x>
+      <y>384</y>
+      <w>184</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Uzytkownik
 --
@@ -46,20 +49,18 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>270</y>
-      <w>639</w>
-      <h>153</h>
+      <x>56</x>
+      <y>248</y>
+      <w>568</w>
+      <h>112</h>
     </coordinates>
-    <panel_attributes>plikZUzytkownikami
+    <panel_attributes>plikZUzytkownikami : public PlikTekstowy
 --
-- nazwaPlikuZUzytkownikami: string
 --
 + PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI);
 + dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik): void
 + wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt;
 + zapiszWszystkichUzytkownikowDoPliku(vector&lt;Uzytkownik&gt; uzytkownicy): void;
-- czyPlikJestPusty(fstream &amp;plikTekstowy): bool
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik): string
 - pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami): Uzytkownik</panel_attributes>
     <additional_attributes/>
@@ -67,10 +68,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>369</x>
-      <y>9</y>
-      <w>297</w>
-      <h>261</h>
+      <x>360</x>
+      <y>0</y>
+      <w>264</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>UzytkownikManadżer
 --
@@ -95,10 +96,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>666</x>
-      <y>270</y>
-      <w>423</w>
-      <h>153</h>
+      <x>624</x>
+      <y>248</y>
+      <w>376</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>metodyPomocnicze
 --
@@ -113,10 +114,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>873</x>
-      <y>423</y>
-      <w>216</w>
-      <h>180</h>
+      <x>808</x>
+      <y>384</y>
+      <w>192</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Adresat
 --
@@ -132,10 +133,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>666</x>
-      <y>9</y>
-      <w>423</w>
-      <h>261</h>
+      <x>624</x>
+      <y>0</y>
+      <w>376</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>AdresatManadzer
 --
@@ -148,32 +149,59 @@
 - podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata): Adresat
 - dopiszAdresataDoPliku(Adresat adresat): void
 - wyswietlDaneAdresata(Adresat adresat): void
+- wyswietlIloscWyszukanychAdresatow(int iloscAdresatow): void
+- wybierzOpcjeZMenuEdycja(): character
 + dodajAdresata(): void
 + wyswietlWszystkichAdresatow: void
-</panel_attributes>
++ wyszukajAdresatowPoImieniu(): void
++ wyszukajAdresatowPoNazwisku(): void
++ usunAdresata(): void
++ edytujAdresata(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>27</x>
-      <y>423</y>
-      <w>639</w>
-      <h>180</h>
+      <x>56</x>
+      <y>360</y>
+      <w>568</w>
+      <h>232</h>
     </coordinates>
-    <panel_attributes>PlikZAdresatami
+    <panel_attributes>PlikZAdresatami : public PlikTekstowy
 --
-- NAZWA_PLIKU_Z_ADRESATAMI: string const
+- idOstatniegoAdresata: integer
+- nazwaTymczasowegoPlikuZAdresatami: string
 --
-+ PlikZAdresatami() 
++ PlikZAdresatami(string nazwaPliku) 
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
 - pobierzLiczbe(string tekst, int pozycjaZnaku): string
 - pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): integer
 - zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat): string
-- czyPlikJestPusty(fstream &amp;plikTekstowy): bool
+- usunPlik(string nazwaPlikuZRozszerzeniem): void
+- zmienNazwePliku(string staraNazwa, string nowaNazwa): void
 + dopiszAdresataDoPliku(Adresat adresat): void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika, vector&lt;Adresat&gt; &amp;adresaci): integer
++ pobierzIdOstatniegoAdresata(): integer
++ usunWybranegoAdresata(int idUsuwanegoAdresata):void
++ zaktualizujDaneWybranegoAdresata( Adresat adresat, int idEdytowanegoAdresata): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>456</y>
+      <w>184</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>PlikTekstowy
+--
+- NAZWA_PLIKU: const string
+--
+protected: czyPlikJestPusty(fstream &amp;plikTekstowy): bool
++ PlikTekstowy(string nazwaPliku)
++ pobierzNazwePliku(): string
 </panel_attributes>
     <additional_attributes/>
   </element>
